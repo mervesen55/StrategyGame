@@ -15,7 +15,7 @@ MonoBehaviour:
   productType: 4
   prefab: {fileID: 1040686800674058607, guid: 1c803828b04edcb4689287582dc1ae2b, type: 3}
   productPrefab: {fileID: 4208127789289846647, guid: fa7826bfcb52a334297159653d1b21fe, type: 3}
-  icon: {fileID: 1741301967, guid: 72ba0072476588940ac02119e7070bc2, type: 3}
+  icon: {fileID: 21300000, guid: 5cd47a9fc1d6088478e9758490dae523, type: 3}
   dimension: {x: 1, y: 1}
   displayName: Soldier3
   unitType: 2
