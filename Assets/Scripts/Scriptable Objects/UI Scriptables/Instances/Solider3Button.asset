@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a61e1135601c3d44bafdbca09f877858, type: 3}
+  m_Name: Solider3Button
+  m_EditorClassIdentifier: 
+  productType: 4
+  prefab: {fileID: 1040686800674058607, guid: 1c803828b04edcb4689287582dc1ae2b, type: 3}
+  productPrefab: {fileID: 4208127789289846647, guid: fa7826bfcb52a334297159653d1b21fe, type: 3}
+  icon: {fileID: 1741301967, guid: 72ba0072476588940ac02119e7070bc2, type: 3}
+  dimension: {x: 1, y: 1}
+  displayName: Soldier3
+  unitType: 2
