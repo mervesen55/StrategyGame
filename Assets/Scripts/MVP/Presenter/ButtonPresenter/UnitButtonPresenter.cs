@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class UnitButtonPresenter : ButtonPresenterBase<UnitButtonModel, UnitButtonView, UnitButtonData>
 {
-    public void Init(UnitButtonData data, UnitButtonView view, Vector2Int spawnStartPoint)
+    public void Init(UnitButtonData data, UnitButtonView view)
     {
         base.Init(data, view);
         view.isInitilazed = true;
-        model.SetSpawnStartGrid(spawnStartPoint);
+        
     }
     protected override void HandleClick()
     {
         GridCell availableCell = GridManager.Instance.FindAvailableSpawnPoint(
-        model.SpawnStartGrid,
+        GameManager.Instance.CurrentSpawnStartPoint,
         Vector2Int.one*4);
         if (availableCell == null)
         {

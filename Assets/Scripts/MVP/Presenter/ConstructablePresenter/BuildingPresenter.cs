@@ -5,9 +5,9 @@ public class BuildingPresenter : ConstructionPresenterBase<BuildingModel, Buildi
 
     public override void Init(BuildingConstructionData data, BuildingView view)
     {
-        base.Init(data, view); // Model ve view burada initialize ediliyor
+        base.Init(data, view);
 
-        CalculateSpawnStartPoint(); // Artýk model ve view hazýr
+        CalculateSpawnStartPoint(); 
     }
     protected override void HandleClicked()
     {

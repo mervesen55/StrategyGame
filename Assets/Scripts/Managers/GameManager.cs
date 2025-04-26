@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public InfoPanelManager InfoPanelManager => infoPanelManager;
     public Transform ButtonContainer => buttonContainer;
     public Transform InfoPanel => infoPanel;
+
+    public Vector2Int CurrentSpawnStartPoint { get; private set; }
     public Dictionary<UnitType, UnitButtonData> UnitButtonDataMap => unitButtonDataMap;
     #endregion
 
@@ -81,6 +83,10 @@ public class GameManager : MonoBehaviour
         return unitButtonDataMap.TryGetValue(type, out var data) ? data : null;
     }
 
+    public void SetSpawnStartPoint(Vector2Int spawnStartPoint)
+    {
+        CurrentSpawnStartPoint = spawnStartPoint;
+    }
 
     private void SpawnAllBuildingButtons(Transform uiParent)
     {

@@ -60,6 +60,8 @@ public class InfoPanelManager : MonoBehaviour
         if (currentActivePresenter == newPresenter)
             return;
         ClearUnitButtons();
+        currentActivePresenter = newPresenter;
+        GameManager.Instance.SetSpawnStartPoint(spawnStartPoint);
 
         foreach (var unitData in GameManager.Instance.UnitButtonDataMap.Values)
         {
@@ -71,7 +73,7 @@ public class InfoPanelManager : MonoBehaviour
             if (!view.isInitilazed)
             {
                 UnitButtonPresenter presenter = new UnitButtonPresenter();
-                presenter.Init(unitData, view, spawnStartPoint);
+                presenter.Init(unitData, view);
             }
             
 
