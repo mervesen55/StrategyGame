@@ -125,10 +125,10 @@ public class GridHoverGhost : MonoBehaviour
                     Vector2Int pos = gridPos + new Vector2Int(ghostSize.x / 2, ghostSize.y / 2);
                     GridManager.Instance.SetAreaOccupied(gridPos, ghostSize, true);
                     Vector2 offset = new Vector2(
-                   (ghostSize.x % 2 != 0) ? 0.5f : 0f,
-                   (ghostSize.y % 2 != 0) ? 0.5f : 0f);
+                    (ghostSize.x % 2 != 0) ? 0.5f : 0f,
+                    (ghostSize.y % 2 != 0) ? 0.5f : 0f);
 
-                    // 
+                   
                     Vector3 spawnPos = pos
                                      + new Vector2(offset.x, offset.y) * cellSize;
 
