@@ -14,7 +14,6 @@ public abstract class ConstructionPresenterBase<TModel, TView, TData>
         this.view = view;
         model = new TModel();
         model.Init(data);
-        Debug.Log("init of construction presenter base worked");
         view.SetHealth(model.CurrentHealth, model.Data.MaxHealth);
         view.OnClicked += HandleClicked;
     }
@@ -31,11 +30,11 @@ public abstract class ConstructionPresenterBase<TModel, TView, TData>
   
     protected virtual void HandleClicked()
     {
-        Debug.Log($"Clicked on {typeof(TModel).Name}");
+        //Debug.Log($"Clicked on {typeof(TModel).Name}");
     }
 
     protected virtual void HandleDestroyed()
     {
-        Debug.Log($"{typeof(TModel).Name} destroyed!");
+       // Debug.Log($"{typeof(TModel).Name} destroyed!");
     }
 }

@@ -47,7 +47,6 @@ public class GridHoverGhost : MonoBehaviour
         ghostRenderer = currentGhost.GetComponent<SpriteRenderer>();
         currentGhost.SetActive(false);
         cellSize = GridManager.Instance.CellSize;
-        //StartHover(ghostSize);
     }
 
 
@@ -75,11 +74,11 @@ public class GridHoverGhost : MonoBehaviour
         while (isActive)
         {
 
-            // 1. Mouse pozisyonunu dünya koordinatýna çevir
+            // 1. Convert mouse position to world coordinates
             Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseWorld.z = 0f;
 
-            // 2. Grid pozisyonunu hesapla
+            // 2. Calculate the grid position
             Vector2Int gridPos = GridManager.Instance.WorldToGrid(mouseWorld);
             // if (gridPos != lastGridPos)
             {
@@ -88,25 +87,25 @@ public class GridHoverGhost : MonoBehaviour
 
                 Vector2Int startPos = gridPos + new Vector2Int(ghostSize.x / 2, ghostSize.y / 2);
 
-                // 3. Yer uygun mu kontrol et
+                // 3.  Check if the location is valid
                 canPlace = GridManager.Instance.CanPlaceBuildingAt(gridPos, ghostSize);
 
-                // 4. Orta noktayý dengelemek için offset hesapla
+                // 4. Calculate offset to center the object
                 Vector2 offset = new Vector2(
                     (ghostSize.x % 2 != 0) ? 0.5f : 0f,
                     (ghostSize.y % 2 != 0) ? 0.5f : 0f
                 );
 
-                // 5. Spawn pozisyonunu hesapla
+                // 5. Calculate the spawn position
                 Vector3 spawnPos = GridManager.Instance.GridToWorld(startPos)
                                  + new Vector3(offset.x, offset.y) * cellSize;
 
-                // 6. Ghost pozisyonunu ve scale’ini ayarla
+                // 6. Set the ghost's position and scale
                 currentGhost.transform.position = spawnPos;
                 currentGhost.transform.localScale = Vector2.one * cellSize * ghostSize;
                 currentGhost.SetActive(true);
 
-                // 7. Ghost rengi: uygun mu?
+                // 7. Set the ghost color: is the placement valid?
 
                 Color targetColor = canPlace ? validColor : invalidColor;
                 if (ghostRenderer.color != targetColor)
@@ -117,7 +116,7 @@ public class GridHoverGhost : MonoBehaviour
 
 
             }
-            // 8. Týklanýrsa event yayýnla
+            // 8. TBroadcast event if clicked
             if (Input.GetMouseButtonDown(0))
             {
                 if (canPlace)
@@ -136,10 +135,7 @@ public class GridHoverGhost : MonoBehaviour
                     CancelHover();
                     yield break;
                 }
-                else
-                {
-                    Debug.Log("nope");
-                }
+               
             }
 
             yield return null;

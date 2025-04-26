@@ -874,13 +874,17 @@ MonoBehaviour:
   buildingConstructionDatas:
   - {fileID: 11400000, guid: 31a6899178bfb2a4c96cfe94aafc2a55, type: 2}
   - {fileID: 11400000, guid: dc455f61b5f42a342909edb5ca302562, type: 2}
+  allBuildingButtos:
+  - {fileID: 11400000, guid: 11901add8c068d64b8c33a0a776ae789, type: 2}
+  - {fileID: 11400000, guid: 5d5d636f83f4d8f45addfc0f4bb86f96, type: 2}
   allUnitButtons:
   - {fileID: 11400000, guid: fcfc0586976733540b3a3853f4fa1126, type: 2}
   - {fileID: 11400000, guid: 8311338cf24c725489b9404c1cf0638c, type: 2}
   - {fileID: 11400000, guid: ef4ed5194d231e54099efa217312b608, type: 2}
-  allBuildingButtos:
-  - {fileID: 11400000, guid: 11901add8c068d64b8c33a0a776ae789, type: 2}
-  - {fileID: 11400000, guid: 5d5d636f83f4d8f45addfc0f4bb86f96, type: 2}
+  unitConstructionDatas:
+  - {fileID: 11400000, guid: 233456126ceaccf418b68d741d3c9247, type: 2}
+  - {fileID: 11400000, guid: b01467b25bbaa084f821188c8b91403e, type: 2}
+  - {fileID: 11400000, guid: 951f946e4d2b13e42a537229a165db4b, type: 2}
   buttonContainer: {fileID: 710784494}
   infoPanel: {fileID: 424182564}
   infoPanelManager: {fileID: 424182567}

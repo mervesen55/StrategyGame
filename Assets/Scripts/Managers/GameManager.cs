@@ -16,23 +16,23 @@ public class GameManager : MonoBehaviour
 
     public Vector2Int CurrentSpawnStartPoint { get; private set; }
     public Dictionary<UnitType, UnitButtonData> UnitButtonDataMap => unitButtonDataMap;
+    public Dictionary<UnitType, UnitConstructionData> UnitConstructionDataMap => unitConstructionDataMap;
     #endregion
 
     #region Serialized Fields - Scriptable Data
     [Header("Scriptable Data")]
-    [SerializeField] List<BuildingConstructionData> buildingConstructionDatas;
+    [SerializeField] private List<BuildingConstructionData> buildingConstructionDatas;
 
-    [Header("Scriptable Data")]
+    [SerializeField] private List<BuildingButtonData> allBuildingButtos;
+
     [SerializeField] private List<UnitButtonData> allUnitButtons;
 
-    [Header("Scriptable Data")]
-    [SerializeField] private List<BuildingButtonData> allBuildingButtos;
+    [SerializeField] private List<UnitConstructionData> unitConstructionDatas;
     #endregion
 
     #region Serialized Fields - UI References
     [Header("UI References")]
     [SerializeField] private Transform buttonContainer;
-    [Header("UI References")]
     [SerializeField] private Transform infoPanel;
 
     [SerializeField] private InfoPanelManager infoPanelManager;
@@ -41,9 +41,12 @@ public class GameManager : MonoBehaviour
     #region Private Data Maps
     private Dictionary<BuildingType, BuildingConstructionData> buildingConstructionDataMap;
 
-    private Dictionary<UnitType, UnitButtonData> unitButtonDataMap;
-
     private Dictionary<BuildingType, BuildingButtonData> buildingButtonMap;
+
+    private Dictionary<UnitType, UnitConstructionData> unitConstructionDataMap;
+
+    private Dictionary<UnitType, UnitButtonData> unitButtonDataMap;
+   
     #endregion
 
 
@@ -57,10 +60,11 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         #endregion
-        
-        InitConstructionDataMap();
+
+        InitBuildingConstructionDataMap();
         InitBuildingButtonMap();
         InitUnitButtonData();
+        InitUnitConstructionDataMap();
     }
     private void Start()
     {
@@ -117,7 +121,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void InitConstructionDataMap()
+    private void InitBuildingConstructionDataMap()
     {
         buildingConstructionDataMap = new Dictionary<BuildingType, BuildingConstructionData>();
 
@@ -155,6 +159,29 @@ public class GameManager : MonoBehaviour
                 buildingButtonMap[data.buildingType] = data;
             else
                 Debug.LogWarning($"[GameManager] Duplicate buildingType in allBuildings: {data.buildingType}");
+        }
+    }
+
+    private void InitUnitConstructionDataMap()
+    {
+        unitConstructionDataMap = new Dictionary<UnitType, UnitConstructionData>();
+
+        foreach (var data in unitConstructionDatas)
+        {
+            if (data == null)
+            {
+                Debug.LogWarning("[GameManager] Found a null entry in unitConstructionDatas list!");
+                continue;
+            }
+
+            if (!unitConstructionDataMap.ContainsKey(data.unitType))
+            {
+                unitConstructionDataMap[data.unitType] = data;
+            }
+            else
+            {
+                Debug.LogWarning($"[GameManager] Duplicate UnitType in unitConstructionDatas: {data.unitType}");
+            }
         }
     }
 

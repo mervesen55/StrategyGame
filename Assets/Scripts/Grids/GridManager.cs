@@ -13,6 +13,9 @@ public class GridManager : MonoBehaviour
     public int Height => height;
     public float CellSize => cellSize;
     public Vector3 OriginPosition => originPosition;
+
+    public Dictionary<Vector2, GridCell> Grid => grid;
+
     #endregion
 
 
@@ -151,6 +154,13 @@ public class GridManager : MonoBehaviour
         }
     }
 
+    public GridCell FindCellByGridPos(Vector2Int gridPos)
+    {
+        if (grid.TryGetValue(gridPos, out var cell))
+            return cell;
+
+        return null;
+    }
 
     public GridCell FindAvailableSpawnPoint(Vector2Int startingGrid, Vector2Int dimension)
     {      

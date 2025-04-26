@@ -9,7 +9,7 @@ public abstract class ButtonPresenterBase<TModel, TView, TData>
     protected TModel model;
     protected TView view;
 
-    public void Init(TData data, TView view)//Init(Enum type, TView view)
+    public virtual void Init(TData data, TView view)//Init(Enum type, TView view)
     {
         this.view = view;
         this.model = new TModel();

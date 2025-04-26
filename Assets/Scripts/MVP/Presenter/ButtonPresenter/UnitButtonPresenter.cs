@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UnitButtonPresenter : ButtonPresenterBase<UnitButtonModel, UnitButtonView, UnitButtonData>
 {
-    public void Init(UnitButtonData data, UnitButtonView view)
+    public override void Init(UnitButtonData data, UnitButtonView view)
     {
         base.Init(data, view);
         view.isInitilazed = true;
@@ -27,6 +27,9 @@ public class UnitButtonPresenter : ButtonPresenterBase<UnitButtonModel, UnitButt
         // Spawn unit
         GameObject unit = GenericFactory.Instance.CreateProduct(model.Data.productPrefab, spawnWorldPos);
         GridManager.Instance.SetAreaOccupied(availableCell.GridPosition, model.Data.dimension, true);
-
+        UnitPresenter unitPresenter = new UnitPresenter();
+        UnitConstructionData constructionData = GameManager.Instance.UnitConstructionDataMap[model.Data.unitType];
+        UnitView unitView = unit.GetComponent<UnitView>();
+        unitPresenter.Init(constructionData, unitView);
     }
 }
