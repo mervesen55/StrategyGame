@@ -16,6 +16,8 @@ public abstract class ConstructionPresenterBase<TModel, TView, TData>
         model.Init(data);
         view.SetHealth(model.CurrentHealth, model.Data.MaxHealth);
         view.OnClicked += HandleClicked;
+       
+
     }
 
     public virtual void TakeDamage(int amount)

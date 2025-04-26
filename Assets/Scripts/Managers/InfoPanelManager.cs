@@ -57,10 +57,16 @@ public class InfoPanelManager : MonoBehaviour
 
     public void SpawnAllUnitButtons(Vector2Int spawnStartPoint, BuildingPresenter newPresenter)
     {
-        if (currentActivePresenter == newPresenter)
-            return;
+        //if (currentActivePresenter == newPresenter)
+        //{
+ 
+        //    return;
+            
+
+        //}
+            
         ClearUnitButtons();
-        currentActivePresenter = newPresenter;
+        //currentActivePresenter = newPresenter;
         GameManager.Instance.SetSpawnStartPoint(spawnStartPoint);
 
         foreach (var unitData in GameManager.Instance.UnitButtonDataMap.Values)

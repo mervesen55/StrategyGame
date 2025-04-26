@@ -4,6 +4,7 @@ public abstract class ConstructionModelBase<TData> where TData : ScriptableObjec
 {
     public TData Data { get; protected set; }
 
+
     public virtual void Init(TData data)
     {
         Data = data;

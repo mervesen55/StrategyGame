@@ -13,7 +13,6 @@ public class BuildingPresenter : ConstructionPresenterBase<BuildingModel, Buildi
     {
         base.HandleClicked();
         InfoPanelManager panel = GameManager.Instance.InfoPanelManager;
-        Debug.Log("[BuildingPresenter] This building can produce units.");
         
         panel.ShowInfo(model.Data);
 

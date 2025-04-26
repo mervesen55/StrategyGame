@@ -8,8 +8,10 @@ public class UnitPresenter : ConstructionPresenterBase<UnitModel, UnitView, Unit
     protected override void HandleClicked()
     {
         base.HandleClicked();
-        Debug.Log("[UnitPresenter] Unit clicked!");
-    
+        InfoPanelManager panel = GameManager.Instance.InfoPanelManager;
+        panel.ShowInfo(model.Data);
+        panel.ClearUnitButtons();
+
         isSelected = true;
         view.OnViewUpdated += Tick;
 

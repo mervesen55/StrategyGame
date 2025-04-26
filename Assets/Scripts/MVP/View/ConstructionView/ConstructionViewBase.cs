@@ -9,7 +9,6 @@ public abstract class ConstructionViewBase : MonoBehaviour
 
     protected void RaiseClickEvent()
     {
-        Debug.Log("raised click event");
         OnClicked?.Invoke();
     }
 }
